@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Project</title>
+    <script>
+         function checkdata()
+            {
+                var text1= document.getElementById("fname").value;
+
+                if (text1=="")
+                {
+                    alert("Fill the form");
+                    return false;
+                }
+
+            }
+
+//          var dob= new Date(document.getElementById("dob").value);
+//             var today=new Date();
+
+//             var age=today.getFullYear()-dob.getFullYear();
+//             var monthdiff=today.getMonth()-dob.getMonth();
+
+//             if(monthdiff<0||(monthdiff===0&&today.getdate()<dob.getdate()))
+// {
+// age--;
+
+// }
+// if(age<18)
+// {
+//     alert("you must be at least 18 years old to create an account");
+//     return false;
+// }
+    </script>
+    <style>
+        h1{color:brown;}
+
+     body{
+        background-image: url(wp2.jpg);
+        background-repeat:no-repeat;
+        background-size: cover;
+     }
+
+        
+     fieldset{
+                border:solid paleturquoise 10px;     
+                border-radius:10px;
+                width: 400px;  
+                height: 150px;  
+                background-color: coral;     
+                color:darkgreen;
+                font-size:large;  
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;                 
+            }
+            
+            button{ 
+                color:darkgreen;
+                font-size:large;  
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;       
+            }
+
+    </style>
+</head>
+<body>
+    <center>
+    <h1><u>User account form</u></h1>
+   
+    <form onsubmit="return checkdata();">
+        <fieldset>
+
+Name:<input type="text"  name="firstName" id="fname" placeholder="Enter your first name" value=""><br><br>
+
+DOB:<input type="date"  name="date "id="dob"value=""><br><br>
+
+Gender: <input type="radio" name="gen" value="male" id="gen"> Male
+        <input type="radio" name="gen"value="female" id="gen"> Female<br><br>
+
+    <button onclick="checkdata()">Submit</button>
+</fieldset>
+</form> 
+</center>   
+</body>
+</html>

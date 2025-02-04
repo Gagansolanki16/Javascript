@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currency Converter</title>
+<style>
+ 
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /*background-image: url("money1.jpg");*/
+    background-image: url(https://images.wallpapersden.com/image/download/garena-free-fire-x-money-heist_bGhmaGiUmZqaraWkpJRobWllrWZuZ2U.jpg);
+  background-size: cover;
+  }
+  .container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 2px 2px black;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+  #box {            
+            height: 10vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(229, 227, 226);
+            box-shadow: 0px 0px 2px 2px black;
+            font-size: 24px;
+        }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Currency Converter</h1>
+  <label for="amount" style="color:bisque;">Amount:</label>
+  <input type="number" id="amount" value="1">
+  <label for="fromCurrency" style="color:bisque;">From Currency:</label>
+  <select id="fromCurrency"></select>
+  <label for="toCurrency" style="color:bisque;">To Currency:</label>
+  <select id="toCurrency"></select>
+  <button id="convertButton" >Convert</button>
+  <div id="box"><div id="result"></div></div>
+</div>
+
+<script>
+
+const exchangeRates = {
+    "USD": 1.0,
+
+    "EUR": 0.84,
+    "GBP": 0.72,
+    "JPY": 109.11,
+    "CAD": 1.25,
+    "AUD": 1.29,
+    "CHF": 0.91,
+    "CNY": 6.46,
+    "HKD": 7.76,
+    "INR": 73.57
+    
+};
+
+
+function rvdrop() {
+    const fromCurrencySelect = document.getElementById("fromCurrency");
+    const toCurrencySelect = document.getElementById("toCurrency");
+
+    for (const currency in exchangeRates) {
+        const option = document.createElement("option");
+        option.value = currency;
+        option.textContent = currency;
+        fromCurrencySelect.appendChild(option.cloneNode(true));
+        toCurrencySelect.appendChild(option);
+    }
+}
+
+
+function convertCurrency() {
+    const amount = parseFloat(document.getElementById("amount").value);
+    const fromCurrency = document.getElementById("fromCurrency").value;
+    const toCurrency = document.getElementById("toCurrency").value;
+
+    if (isNaN(amount) || !exchangeRates[fromCurrency] || !exchangeRates[toCurrency]) {
+        document.getElementById("result").innerText = "Invalid input or unsupported currency.";
+        return;
+    }
+
+    const convertedAmount = (amount / exchangeRates[fromCurrency]) * exchangeRates[toCurrency];
+
+    document.getElementById("result").innerText = `${amount} ${fromCurrency} = ${convertedAmount.toFixed(2)} ${toCurrency}`;
+}
+
+
+document.getElementById("convertButton").addEventListener("click", convertCurrency);
+
+
+window.addEventListener("load", rvdrop);
+</script>
+
+</body>
+</html>

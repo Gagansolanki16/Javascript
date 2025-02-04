@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Project</title>
+    <style>
+     body{
+        background-image:url(wp1.jpg); 
+        background-repeat:no-repeat;
+        background-size:cover;
+        margin-top:18%;
+        height:300px;
+        width:450px;
+        text-align:center;
+        margin-left:33%;
+
+    }
+    fieldset{
+        background-color:rgb(255,99,71,0.2);
+        color:purple;
+        font-family:calibri;
+        font-size:large;
+        border:20px;
+        border-radius:25px;
+       
+    }
+    #btn{font-family:calibri;
+        font-size:large;
+        color:burlywood;
+        background-color:aliceblue;
+
+      }
+
+    </style>
+</head>
+<body>
+  <fieldset>
+  <h1>JavaScript Project</h1>
+
+<button onclick="myFunction()" id="btn">Pop-up here</button>
+
+<p id="demo"></p>
+
+<script>
+  
+function myFunction() {
+  let text;
+  let name = prompt("Please enter your name:");
+  if (name == "") {
+    text = "Please enter your name.";
+  } else {
+    text = "Hi" +","+ name + "! This is your javascript project.";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+</fieldset>
+</body>
+</html>
